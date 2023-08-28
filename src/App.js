@@ -17,9 +17,14 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1 className="title">Rick & Morty</h1>
-        <Characters/>
-        <img src={imageRickMorty} alt="Rick & Morty" className='img-home'/>
-        <button onClick={reqApi} className="btn-search">Buscar personajes</button>
+        {characters ? (
+          <Characters characters={characters} setCharacters={setCharacters}/>
+        ) : (
+          <>
+          <img src={imageRickMorty} alt="Rick & Morty" className='img-home'/>
+          <button onClick={reqApi} className="btn-search">Buscar personajes</button>
+          </>
+        )}               
       </header>
     </div>
   );
